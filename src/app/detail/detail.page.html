@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>{{ producer.name }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <ion-card>
+      <img [src]="producer.logo" [alt]="producer.name">
+      <ion-card-header>
+        <ion-card-title>
+            {{ producer.name }}
+        </ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content>
+        {{ producer.description }}
+        <ion-button *ngIf="isFavorite" color="danger" (click)="toggleFavorite(producer)">
+          Retirer des favoris
+        </ion-button>
+        <ion-button *ngIf="!isFavorite" (click)="toggleFavorite(producer)">
+          Ajouter des favoris
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+      
+  </ion-content>

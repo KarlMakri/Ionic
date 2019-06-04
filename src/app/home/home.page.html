@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <!-- IONIC Application Introductive
+    <p>Tout Va Bien</p> -->
+
+    <p>{{ count }} Click(s)</p>
+
+    <p *ngIf="count >=10">Bravo !</p>
+
+    <ul>
+       <li *ngFor="let producer of producers">{{ producer.name }}</li>
+    </ul>
+
+    <ion-list>
+
+      <ion-item *ngFor="let producer of producers; let i = index">
+        <ion-avatar>
+          <img [src]="producer.logo" [alt]="producer.name">
+        </ion-avatar>
+        <ion-label routerLink="/producer/detail/{{i}}">{{ producer.name }} {{ i }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Input</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Radio</ion-label>
+        <ion-radio slot="end"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Checkbox</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+
+    </ion-list>
+
+  
+    <button (click)="increment()">Incrémente</button>&nbsp;
+    <ion-button (click)="decrement()">Décrémente</ion-button>
+
+    <ion-button (click)="goTo()">Aide</ion-button>
+    <ion-button routerLink="/help">Aide</ion-button>
+
+  </div>
+</ion-content>
